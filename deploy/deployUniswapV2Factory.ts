@@ -13,13 +13,13 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   // Create deployer object and load the artifact of the contract we want to deploy.
   const deployer = new Deployer(hre, wallet);
   const _feeToSetter = deployer.zkWallet.address;
-  const artifact = await deployer.loadArtifact("SkSyncSwapFactory");
-  const SkSyncSwapFactoryContract = await deployer.deploy(artifact, [_feeToSetter]);
+  const artifact = await deployer.loadArtifact("UniswapV2Factory");
+  const UniswapV2FactoryContract = await deployer.deploy(artifact, [_feeToSetter]);
 
   // Show the contract info.
-  const contractAddress = SkSyncSwapFactoryContract.address;
+  const contractAddress = UniswapV2FactoryContract.address;
   console.log(`${artifact.contractName} was deployed to ${contractAddress}`);
 
-  const INIT_CODE_PAIR_HASH = await SkSyncSwapFactoryContract.INIT_CODE_PAIR_HASH();
+  const INIT_CODE_PAIR_HASH = await UniswapV2FactoryContract.INIT_CODE_PAIR_HASH();
   console.log(`INIT_CODE_PAIR_HASH: ${INIT_CODE_PAIR_HASH}`);
 }

@@ -14,10 +14,10 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   const deployer = new Deployer(hre, wallet);
   const factoryAddress = "0x0D4906b962F5602cf2D90AE8402e0C5A91AF6D3d"
   const WETH = "0x294cB514815CAEd9557e6bAA2947d6Cf0733f014"
-  const artifact = await deployer.loadArtifact("SkSyncSwapRouter");
-  const SkSyncSwapRouterContract = await deployer.deploy(artifact, [factoryAddress, WETH]);
+  const artifact = await deployer.loadArtifact("UniswapV2Router02");
+  const UniswapV2Router02Contract = await deployer.deploy(artifact, [factoryAddress, WETH]);
 
   // Show the contract info.
-  const contractAddress = SkSyncSwapRouterContract.address;
+  const contractAddress = UniswapV2Router02Contract.address;
   console.log(`${artifact.contractName} was deployed to ${contractAddress}`);
 }

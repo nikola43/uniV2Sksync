@@ -21,7 +21,7 @@ async function deployRouter(deployer: Deployer, _factory: string, _WETH: string)
   return await deployer.deploy(artifact, [_factory, _WETH]);
 }
 
-async function deployToken(deployer: Deployer, _name: string, _symbol: string, _precision: string, _supply: ethers.ethers.BigNumber, _to: string): Promise<zksync.Contract> {
+async function deployToken(deployer: Deployer, _name: string, _symbol: string, _precision: number, _supply: ethers.ethers.BigNumber, _to: string): Promise<zksync.Contract> {
   const artifact = await deployer.loadArtifact("Token");
   return await deployer.deploy(artifact, [_name, _symbol, _precision, _supply, _to]);
 }
@@ -49,7 +49,7 @@ describe("Deploy Factory", function () {
     expect(INIT_CODE_PAIR_HASH.length).to.eq(66);
     console.log("INIT_CODE_PAIR_HASH: " + INIT_CODE_PAIR_HASH);
     console.log(INIT_CODE_PAIR_HASH.substring(2));
-    
+
     await sleep(10000);
   });
 
@@ -66,9 +66,8 @@ describe("Deploy Factory", function () {
   });
 
   it("Should deploy token0 and token1", async function () {
-    token0 = await deployToken(deployer, "token0", "token0", "18", parseEther("100000000"), wallet.address);
-    token1 = await deployToken(deployer, "token1", "token1", "18", parseEther("100000000"), wallet.address);
-
+    token0 = await deployToken(deployer, "token0", "token0", 18, parseEther("100000000"), wallet.address);
+    token1 = await deployToken(deployer, "token1", "token1", 18, parseEther("100000000"), wallet.address);
 
     expect(await token0.name()).to.eq("token0");
     expect(await token1.name()).to.eq("token1");
@@ -77,8 +76,14 @@ describe("Deploy Factory", function () {
     expect(await token0.decimals()).to.eq(18);
     expect(await token1.decimals()).to.eq(18);
 
+    const balance0 = await token0.balanceOf(wallet.address);
+    const balance1 = await token1.balanceOf(wallet.address);
+    console.log("balance0: " + ethers.utils.formatEther(balance0));
+    console.log("balance1: " + ethers.utils.formatEther(balance1));
+
   });
 
+  /*
   it("Should create pair", async function () {
     const tx = await UniswapV2Factory.createPair(token0.address, token1.address);
     await tx.wait();
@@ -89,13 +94,31 @@ describe("Deploy Factory", function () {
     const pairAddress = await UniswapV2Factory.getPair(token0.address, token1.address);
     console.log("pairAddress: " + pairAddress);
   });
+  it("Should return pair for", async function () {
+    const pairAddress = await UniswapV2Router02.pairFor(token0.address, token1.address);
+    console.log("pairAddress: " + pairAddress);
+  });
+  */
+  it("Should approve token0 and token1", async function () {
+    const tx1 = await token0.approve(UniswapV2Router02.address, parseEther("100000000"));
+    const tx2 = await token1.approve(UniswapV2Router02.address, parseEther("100000000"));
+    await tx1.wait();
+    await tx2.wait();
+
+    const allowance0 = await token0.allowance(wallet.address, UniswapV2Router02.address);
+    const allowance1 = await token1.allowance(wallet.address, UniswapV2Router02.address);
+    console.log("allowance0: " + ethers.utils.formatEther(allowance0));
+    console.log("allowance1: " + ethers.utils.formatEther(allowance1));
+  });
+
+
 
   it("Should add liquidity", async function () {
-    const amount0Desired = parseEther("1000000");
-    const amount1Desired = parseEther("1000000");
-    const amountAMin = parseEther("100000");
-    const amountBMin = parseEther("100000");
-    const deadline = 2648069985 // Saturday, 29 November 2053 22:59:45
+    const amount0Desired = parseEther("1000");
+    const amount1Desired = parseEther("1000");
+    const amountAMin = parseEther("0");
+    const amountBMin = parseEther("0");
+    const deadline = Math.floor(Date.now() / 1000) + 60 * 20; // 20 minutes from now
 
     const tx = await UniswapV2Router02.addLiquidity(
       token0.address,
@@ -110,11 +133,16 @@ describe("Deploy Factory", function () {
     await tx.wait();
   });
 
+
+  /*
   it("Should get pair balance", async function () {
     const pairAddress = await UniswapV2Factory.getPair(token0.address, token1.address);
+    console.log("pairAddress: " + pairAddress);
     const pair = await deployer.loadArtifact("UniswapV2Pair");
-    const pairContract = new ethers.Contract(pairAddress, pair.abi);
+    const pairContract = new zksync.Contract(pairAddress, pair.abi);
     const balance = await pairContract.balanceOf(wallet.address);
     console.log("balance: " + ethers.utils.formatEther(balance));
   });
+  */
+
 });
