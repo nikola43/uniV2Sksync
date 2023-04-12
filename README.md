@@ -8,6 +8,9 @@ git clone https://github.com/matter-labs/local-setup.git
 cd local-setup
 ./start.sh
 
-Reset the zkSync state
-./clear.sh
+3 - Compile contracts
+npx hardhat compile
+
+4 - Run tests
+yarn test:factory
 
