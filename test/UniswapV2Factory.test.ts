@@ -6,7 +6,7 @@ import { Deployer } from "@matterlabs/hardhat-zksync-deploy";
 import { parseEther } from "ethers/lib/utils";
 
 const RICH_WALLET_PK = "0x7726827caac94a7f9e1b160f7ea819f172f7b6f9d2a97f992c38edeab82d4110";
-let skSyncSwapFactory: zksync.Contract;
+let UniswapV2Factory: zksync.Contract;
 let UniswapV2Router02: zksync.Contract;
 let token0: zksync.Contract;
 let token1: zksync.Contract;
@@ -43,9 +43,9 @@ describe("Deploy Factory", function () {
 
   it("Should deploy UniswapV2Factory and return INIT_CODE_PAIR_HASH", async function () {
     const _feeToSetter = wallet.address;
-    skSyncSwapFactory = await deployFactory(deployer, _feeToSetter);
+    UniswapV2Factory = await deployFactory(deployer, _feeToSetter);
 
-    const INIT_CODE_PAIR_HASH = await skSyncSwapFactory.INIT_CODE_PAIR_HASH();
+    const INIT_CODE_PAIR_HASH = await UniswapV2Factory.INIT_CODE_PAIR_HASH();
     expect(INIT_CODE_PAIR_HASH.length).to.eq(66);
     console.log("INIT_CODE_PAIR_HASH: " + INIT_CODE_PAIR_HASH);
     console.log(INIT_CODE_PAIR_HASH.substring(2));
@@ -56,10 +56,10 @@ describe("Deploy Factory", function () {
   it("Should deploy UniswapV2Router02", async function () {
 
     const _WETH = "0x294cB514815CAEd9557e6bAA2947d6Cf0733f014";
-    UniswapV2Router02 = await deployRouter(deployer, skSyncSwapFactory.address, _WETH);
+    UniswapV2Router02 = await deployRouter(deployer, UniswapV2Factory.address, _WETH);
 
     const factoryAddress = await UniswapV2Router02.factory();
-    expect(factoryAddress).to.eq(skSyncSwapFactory.address);
+    expect(factoryAddress).to.eq(UniswapV2Factory.address);
 
     const WETH = await UniswapV2Router02.WETH();
     expect(WETH).to.eq(_WETH);
@@ -80,13 +80,13 @@ describe("Deploy Factory", function () {
   });
 
   it("Should create pair", async function () {
-    const tx = await skSyncSwapFactory.createPair(token0.address, token1.address);
+    const tx = await UniswapV2Factory.createPair(token0.address, token1.address);
     await tx.wait();
 
   });
 
   it("Should get pair", async function () {
-    const pairAddress = await skSyncSwapFactory.getPair(token0.address, token1.address);
+    const pairAddress = await UniswapV2Factory.getPair(token0.address, token1.address);
     console.log("pairAddress: " + pairAddress);
   });
 
@@ -111,7 +111,7 @@ describe("Deploy Factory", function () {
   });
 
   it("Should get pair balance", async function () {
-    const pairAddress = await skSyncSwapFactory.getPair(token0.address, token1.address);
+    const pairAddress = await UniswapV2Factory.getPair(token0.address, token1.address);
     const pair = await deployer.loadArtifact("UniswapV2Pair");
     const pairContract = new ethers.Contract(pairAddress, pair.abi);
     const balance = await pairContract.balanceOf(wallet.address);
