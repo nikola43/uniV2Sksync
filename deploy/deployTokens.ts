@@ -15,7 +15,7 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   console.log(`Running deploy script for the SkSyncSwapToken contract`);
 
   // Initialize the wallet.
-  const wallet = new Wallet("0xb3566ee61001b4e37eed7adc6ed9c7315cd95bc96357ddccf4ffbc211c9318b0");
+  const wallet = new Wallet("1226bb35adb01d8f92d506362fd386dde13d70fa2e8a70c6783f74ce8f6c621b");
 
   // Create deployer object and load the artifact of the contract we want to deploy.
   const deployer = new Deployer(hre, wallet);
