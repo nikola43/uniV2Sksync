@@ -5,5 +5,7 @@
       "strict": true,
       "esModuleInterop": true,
       "resolveJsonModule": true
-    }
+    },
+    "include": ["./scripts", "./test", "./typechain"],
+    "files": ["./hardhat.config.ts"]
   }

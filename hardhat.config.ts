@@ -3,7 +3,7 @@ import { HardhatUserConfig } from "hardhat/config";
 require("@matterlabs/hardhat-zksync-deploy");
 require("@matterlabs/hardhat-zksync-solc");
 import "@matterlabs/hardhat-zksync-verify";
-
+import '@typechain/hardhat'
 
 // dynamically changes endpoints for local tests
 const zkSyncTestnet =
@@ -93,6 +93,10 @@ const config: HardhatUserConfig = {
         tests: "./test",
         cache: "./cache-zk",
         artifacts: "./artifacts-zk"
+    },
+    typechain: {
+        outDir: 'typechain',
+        target: 'ethers-v5'
     },
 };
 

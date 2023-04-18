@@ -58,13 +58,16 @@ const verify = async (contractAddress: string, contractName: string, args: any[]
 export default async function (hre: HardhatRuntimeEnvironment) {
   console.log(`Running deploy script for the SkSyncSwapToken contract`);
   const SLEEP_TIME = 10;
-  const isTesnet = false;
+
 
   // Initialize the wallet.
   const RICH_WALLET_PK = "0x7726827caac94a7f9e1b160f7ea819f172f7b6f9d2a97f992c38edeab82d4110";
   const deployer_PK = "0x1226bb35adb01d8f92d506362fd386dde13d70fa2e8a70c6783f74ce8f6c621b";
-  const wallet = new Wallet(RICH_WALLET_PK);
+  const networkMame = await hre.network.name;
+  const wallet = new Wallet(networkMame === "hardhat" ? RICH_WALLET_PK : deployer_PK);
   const deployer = new Deployer(hre, wallet);
+
+  const isTesnet = networkMame == "zkSyncTestnet";
 
   // deploy psm
   let artifact = await deployer.loadArtifact("SyncPSM");
@@ -166,9 +169,21 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   }
   console.log(`${artifact.contractName} was deployed to ${SyncSwapFarmContract.address}`);
 
+  const tx5 = await SyncSwapFarmContract.addRewardToken(token0.address);
+  tx5.wait();
+
+  // transfer token to farm
+  const tx6 = await token0.transfer(SyncSwapFarmContract.address, parseEther("10000000"));
+  tx6.wait();
+
   const newStartTime = Math.floor(Date.now() / 1000) + 60 * 1; // 20 minutes from now
-  const endTime = Math.floor(Date.now() / 1000) + 60 * 10000000; // 20 minutes from now
-  SyncSwapFarmContract.setRewardParams(token0.address, parseEther("1"), newStartTime, endTime)
+  const endTime = Math.floor(Date.now() / 1000) + 60 * 1 * 60 * 30; // 30 days from now
+  const tx7 = await SyncSwapFarmContract.setRewardParams(token0.address, parseEther("0.01"), newStartTime, endTime)
+  tx7.wait();
+
+
+
+
 
 
 }
