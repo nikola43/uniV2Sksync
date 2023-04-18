@@ -22,11 +22,11 @@ const zkSyncTestnet =
 
 const config: HardhatUserConfig = {
     zksolc: {
-        version: "1.3.5",
+        version: "1.3.7",
         compilerSource: "binary",
         settings: {},
     },
-    defaultNetwork: "zkSyncTestnet",
+    defaultNetwork: "hardhat",
     networks: {
         hardhat: {
             // @ts-ignore
@@ -40,7 +40,7 @@ const config: HardhatUserConfig = {
     solidity: {
         compilers: [
             {
-                version: '0.8.15',
+                version: '0.8.19',
                 settings: {
                     optimizer: {
                         enabled: true,
@@ -87,6 +87,12 @@ const config: HardhatUserConfig = {
                 version: '0.8.0'
             }
         ]
+    },
+    paths: {
+        sources: "./contracts",
+        tests: "./test",
+        cache: "./cache-zk",
+        artifacts: "./artifacts-zk"
     },
 };
 
