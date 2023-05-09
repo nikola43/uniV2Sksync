@@ -1,103 +1,93 @@
-import { HardhatUserConfig } from "hardhat/config";
-
-require("@matterlabs/hardhat-zksync-deploy");
-require("@matterlabs/hardhat-zksync-solc");
+import "@matterlabs/hardhat-zksync-deploy";
 import "@matterlabs/hardhat-zksync-verify";
-import '@typechain/hardhat'
+import "@matterlabs/hardhat-zksync-solc";
+import "@nomiclabs/hardhat-waffle";
+import "@nomiclabs/hardhat-solhint";
+import "hardhat-gas-reporter";
+require('dotenv').config()
 
-// dynamically changes endpoints for local tests
-const zkSyncTestnet =
-    process.env.NODE_ENV == "test"
-        ? {
-            url: "http://localhost:3050",
-            ethNetwork: "http://localhost:8545",
-            zksync: true,
-        }
-        : {
-            url: "https://zksync2-testnet.zksync.dev",
-            ethNetwork: "goerli",
-            zksync: true,
-            verifyURL: 'https://zksync2-testnet-explorer.zksync.dev/contract_verification'
-        };
-
-const config: HardhatUserConfig = {
+module.exports = {
+    // hardhat-zksync-solc
+    // The compiler configuration for zkSync artifacts.
     zksolc: {
-        version: "1.3.7",
+        version: "1.3.5",
         compilerSource: "binary",
         settings: {},
     },
-    defaultNetwork: "hardhat",
+
+    // The compiler configuration for default artifacts.
+    solidity: {
+        version: "0.8.15",
+        settings: {
+            optimizer: {
+                enabled: true,
+                runs: 200,
+                details: {
+                    yul: false
+                }
+            },
+        }
+    },
+
+    paths: {
+        sources: "./contracts",
+        tests: "./test",
+        cache: "./cache",
+        artifacts: "./artifacts"
+    },
+
+    defaultNetwork: 'hardhat',
     networks: {
         hardhat: {
-            // @ts-ignore
-            zksync: true,
+            chainId: 280,
+            gasMultiplier: 0,
+            initialBaseFeePerGas: 0,
         },
-        zkSyncTestnet,
+
+        goerli: {
+            url: "https://endpoints.omniatech.io/v1/eth/goerli/public"
+        },
+
+        mainnet: {
+            url: "https://eth.llamarpc.com"
+        },
+
+        zkSyncTestnet: {
+            zksync: true,
+            // URL of the Ethereum Web3 RPC, or the identifier of the network (e.g. `mainnet` or `goerli`)
+            ethNetwork: "goerli",
+            // URL of the zkSync network RPC
+            url: 'https://zksync2-testnet.zksync.dev',
+            // Verification endpoint for Goerli
+            verifyURL: 'https://zksync2-testnet-explorer.zksync.dev/contract_verification'
+        },
+
+        zkSyncMainnet: {
+            zksync: true,
+            ethNetwork: "mainnet",
+            url: 'https://zksync2-mainnet.zksync.io',
+            verifyURL: 'https://zksync2-mainnet-explorer.zksync.io/contract_verification'
+        },
+
+        baseGoerli: {
+            url: "https://goerli.base.org",
+            accounts: process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+        },
+
+        scrollTestnet: {
+            url: "https://alpha-rpc.scroll.io/l2",
+            accounts: process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+        },
+
+        polygonTestnet: {
+            url: "https://rpc.public.zkevm-test.net",
+            accounts: process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+        }
     },
     etherscan: {
         apiKey: "K8RG5EFT7F4C9K5J3ZH3XRW775SSG7Z1U5", // eth
     },
-    solidity: {
-        compilers: [
-            {
-                version: '0.8.19',
-                settings: {
-                    optimizer: {
-                        enabled: true,
-                        runs: 200
-                    }
-                }
-            },
-            {
-                version: '0.6.12', // Pan9inch Router
-                settings: {
-                    optimizer: {
-                        enabled: true
-                    }
-                }
-            },
-            {
-                version: '0.6.6', // Pangolin Router
-                settings: {
-                    optimizer: {
-                        enabled: true,
-                        runs: 1000
-                    }
-                }
-            },
-            {
-                version: '0.8.2' // Pan9inch Pair
-            },
-            {
-                version: '0.5.17' // WAVAX
-            },
-            {
-                version: '0.5.16' // Pan9inch / Pangolin -> Pair / Factory
-            },
-            {
-                version: '0.5.0' // Pan9inch Pair
-            },
-            {
-                version: '0.4.24' // WBTC
-            },
-            {
-                version: '0.4.18' // WBNB
-            },
-            {
-                version: '0.8.0'
-            }
-        ]
-    },
-    paths: {
-        sources: "./contracts",
-        tests: "./test",
-        cache: "./cache-zk",
-        artifacts: "./artifacts-zk"
-    },
-    typechain: {
-        outDir: 'typechain',
-        target: 'ethers-v5'
+    mocha: {
+        timeout: 40000
     },
 };
-
-export default config;

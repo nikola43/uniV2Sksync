@@ -1,0 +1,351 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "ICallback",
+  "sourceName": "contracts/interfaces/ICallback.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "sender",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "balance0",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "balance1",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "liquidity",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "totalSupply",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount0",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount1",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint8",
+              "name": "withdrawMode",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes",
+              "name": "callbackData",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct ICallback.BaseBurnCallbackParams",
+          "name": "params",
+          "type": "tuple"
+        }
+      ],
+      "name": "syncSwapBaseBurnCallback",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "sender",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "tokenIn",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "tokenOut",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "balance0",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "balance1",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "liquidity",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "totalSupply",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount0",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount1",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amountOut",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amountSwapped",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "feeIn",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint24",
+              "name": "swapFee",
+              "type": "uint24"
+            },
+            {
+              "internalType": "uint8",
+              "name": "withdrawMode",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes",
+              "name": "callbackData",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct ICallback.BaseBurnSingleCallbackParams",
+          "name": "params",
+          "type": "tuple"
+        }
+      ],
+      "name": "syncSwapBaseBurnSingleCallback",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "sender",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "reserve0",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "reserve1",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "balance0",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "balance1",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount0",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount1",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "fee0",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "fee1",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "newInvariant",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "oldInvariant",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "totalSupply",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "liquidity",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint24",
+              "name": "swapFee",
+              "type": "uint24"
+            },
+            {
+              "internalType": "bytes",
+              "name": "callbackData",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct ICallback.BaseMintCallbackParams",
+          "name": "params",
+          "type": "tuple"
+        }
+      ],
+      "name": "syncSwapBaseMintCallback",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "sender",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "tokenIn",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "tokenOut",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "reserve0",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "reserve1",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "balance0",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "balance1",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amountIn",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amountOut",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "feeIn",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint24",
+              "name": "swapFee",
+              "type": "uint24"
+            },
+            {
+              "internalType": "uint8",
+              "name": "withdrawMode",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes",
+              "name": "callbackData",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct ICallback.BaseSwapCallbackParams",
+          "name": "params",
+          "type": "tuple"
+        }
+      ],
+      "name": "syncSwapBaseSwapCallback",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

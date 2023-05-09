@@ -1,32 +1,59 @@
 {
-  "name": "local-testing-tutorial",
+  "name": "@syncswap/core-contracts",
+  "description": "Core smart contracts of the SyncSwap protocol",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
+  "homepage": "https://syncswap.xyz",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/syncswap/core-contracts"
+  },
+  "keywords": [
+    "syncswap",
+    "zksync",
+    "ethereum"
+  ],
+  "license": "AGPL-3.0-or-later",
   "devDependencies": {
-    "@matterlabs/hardhat-zksync-deploy": "^0.6.0",
-    "@matterlabs/hardhat-zksync-solc": "^0.3.12",
-    "@matterlabs/hardhat-zksync-verify": "^0.1.4",
-    "@nomiclabs/hardhat-etherscan": "^3.1.7",
-    "@typechain/ethers-v5": "^10.1.0",
-    "@typechain/hardhat": "^6.1.5",
-    "@types/chai": "^4.3.0",
-    "@types/mocha": "^9.1.0",
+    "@matterlabs/hardhat-zksync-chai-matchers": "^0.1.0",
+    "@matterlabs/hardhat-zksync-deploy": "^0.6.2",
+    "@matterlabs/hardhat-zksync-solc": "^0.3.14",
+    "@matterlabs/hardhat-zksync-toolbox": "^0.1.0",
+    "@matterlabs/hardhat-zksync-verify": "^0.1.2",
+    "@matterlabs/hardhat-zksync-vyper": "^0.1.7",
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
+    "@nomiclabs/hardhat-ethers": "^2.2.2",
+    "@nomiclabs/hardhat-etherscan": "^3.1.6",
+    "@nomiclabs/hardhat-solhint": "^2.0.1",
+    "@nomiclabs/hardhat-waffle": "^2.0.3",
+    "@types/chai": "^4.3.1",
+    "@types/mocha": "^9.1.1",
     "chai": "^4.3.6",
     "ethereum-waffle": "^3.4.4",
-    "ethers": "^5.5.4",
-    "hardhat": "^2.8.4",
+    "ethereumjs-util": "^7.1.4",
+    "ethers": "^5.6.1",
+    "hardhat": "^2.12.7",
+    "hardhat-gas-reporter": "^1.0.9",
     "mocha": "^10.0.0",
-    "ts-node": "^10.5.0",
-    "typechain": "^8.1.0",
-    "typescript": "^4.5.5",
-    "zksync-web3": "^0.13.4"
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.2",
+    "zksync-web3": "^0.14.3"
   },
   "scripts": {
-    "test": "NODE_ENV=test hardhat test"
+    "build": "yarn hardhat compile",
+    "build-zk": "yarn hardhat compile --network zkSyncTestnet",
+    "deploy-fee-manager-zksync-testnet": "yarn hardhat deploy-zksync --script deployFeeManagerTestnet.ts --network zkSyncTestnet",
+    "deploy-fee-manager-zksync-mainnet": "yarn hardhat deploy-zksync --script deployFeeManagerMainnet.ts --network zkSyncMainnet",
+    "deploy-fee-recipient-zksync-testnet": "yarn hardhat deploy-zksync --script deployFeeRecipientTestnet.ts --network zkSyncTestnet",
+    "deploy-fee-recipient-zksync-mainnet": "yarn hardhat deploy-zksync --script deployFeeRecipientMainnet.ts --network zkSyncMainnet",
+    "deploy-zksync-testnet": "yarn hardhat deploy-zksync --script deployTestnet.ts --network zkSyncTestnet",
+    "deploy-zksync-mainnet": "yarn hardhat deploy-zksync --script deployMainnet.ts --network zkSyncMainnet",
+    "deploy-scroll-testnet": "yarn hardhat run --network scrollTestnet deploy/deployScrollTestnet.ts",
+    "deploy-polygon-testnet": "yarn hardhat run --network polygonTestnet deploy/deployPolygonTestnet.ts",
+    "compile": "yarn hardhat compile",
+    "test": "yarn hardhat test"
   },
   "dependencies": {
-    "@openzeppelin/contracts": "^4.8.2",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "hardhat-deploy": "^0.11.25"
   }
 }

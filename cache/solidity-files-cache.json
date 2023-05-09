@@ -1,0 +1,3006 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/SyncSwapRouter.sol": {
+      "lastModificationDate": 1683663685336,
+      "contentHash": "41fb07200435e9708dc5ab549363a2ea",
+      "sourceName": "contracts/SyncSwapRouter.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "./interfaces/IWETH.sol",
+        "./interfaces/IRouter.sol",
+        "./interfaces/IStakingPool.sol",
+        "./interfaces/vault/IVault.sol",
+        "./interfaces/pool/IPool.sol",
+        "./interfaces/pool/IBasePool.sol",
+        "./interfaces/token/IERC20Permit.sol",
+        "./interfaces/factory/IPoolFactory.sol",
+        "./libraries/TransferHelper.sol",
+        "./abstract/SelfPermit.sol",
+        "./abstract/Multicall.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "SyncSwapRouter"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/interfaces/IWETH.sol": {
+      "lastModificationDate": 1683663685343,
+      "contentHash": "7ab5204096df7013f6574c773ba82417",
+      "sourceName": "contracts/interfaces/IWETH.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IWETH"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/interfaces/IRouter.sol": {
+      "lastModificationDate": 1683663685343,
+      "contentHash": "cfcd36be122b7d94deeffabba13e0ebf",
+      "sourceName": "contracts/interfaces/IRouter.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IRouter"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/interfaces/IStakingPool.sol": {
+      "lastModificationDate": 1683663685345,
+      "contentHash": "da513eb817ac080440e39ae8dc2acc17",
+      "sourceName": "contracts/interfaces/IStakingPool.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IStakingPool"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/interfaces/vault/IVault.sol": {
+      "lastModificationDate": 1683663685348,
+      "contentHash": "d7d0a4f4af935baaf1c020cba010b907",
+      "sourceName": "contracts/interfaces/vault/IVault.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "./IFlashLoan.sol"
+      ],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IVault"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/interfaces/pool/IPool.sol": {
+      "lastModificationDate": 1683663685346,
+      "contentHash": "1ac3fb21d42a38c34f4faaac43fd1ecb",
+      "sourceName": "contracts/interfaces/pool/IPool.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IPool"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/interfaces/pool/IBasePool.sol": {
+      "lastModificationDate": 1683663685345,
+      "contentHash": "eb2c0c35175e3de1951e63c92ddaa808",
+      "sourceName": "contracts/interfaces/pool/IBasePool.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "./IPool.sol",
+        "../token/IERC20Permit2.sol"
+      ],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IBasePool"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/interfaces/token/IERC20Permit.sol": {
+      "lastModificationDate": 1683663685341,
+      "contentHash": "69b751b2665ab9ad5d1ac5305ac9122b",
+      "sourceName": "contracts/interfaces/token/IERC20Permit.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "./IERC20.sol"
+      ],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IERC20Permit"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/libraries/TransferHelper.sol": {
+      "lastModificationDate": 1683663685335,
+      "contentHash": "4c96334ecc3f735aae7f7f86a06b39a1",
+      "sourceName": "contracts/libraries/TransferHelper.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "TransferHelper"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/abstract/SelfPermit.sol": {
+      "lastModificationDate": 1683663685330,
+      "contentHash": "4a1afe70beeba606569a241042307ac7",
+      "sourceName": "contracts/abstract/SelfPermit.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/token/IERC20Permit2.sol",
+        "../interfaces/token/IERC20PermitAllowed.sol"
+      ],
+      "versionPragmas": [
+        ">=0.8.0"
+      ],
+      "artifacts": [
+        "SelfPermit"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/abstract/Multicall.sol": {
+      "lastModificationDate": 1683663685331,
+      "contentHash": "1b4b3c119b386155e26cac992dd1a155",
+      "sourceName": "contracts/abstract/Multicall.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.8.0"
+      ],
+      "artifacts": [
+        "Multicall"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/interfaces/factory/IPoolFactory.sol": {
+      "lastModificationDate": 1683663685346,
+      "contentHash": "22265c2e71555142469757faf3f5149a",
+      "sourceName": "contracts/interfaces/factory/IPoolFactory.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IPoolFactory"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/interfaces/vault/IFlashLoan.sol": {
+      "lastModificationDate": 1683663685348,
+      "contentHash": "98a4efefa7733a9c899e4aca1396d0d8",
+      "sourceName": "contracts/interfaces/vault/IFlashLoan.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "./IFlashLoanRecipient.sol",
+        "./IERC3156FlashLender.sol"
+      ],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IFlashLoan"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/interfaces/vault/IFlashLoanRecipient.sol": {
+      "lastModificationDate": 1683663685347,
+      "contentHash": "b1b969bdf71299ae36c9c1a2bedad769",
+      "sourceName": "contracts/interfaces/vault/IFlashLoanRecipient.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.0 <0.9.0"
+      ],
+      "artifacts": [
+        "IFlashLoanRecipient"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/interfaces/vault/IERC3156FlashLender.sol": {
+      "lastModificationDate": 1683663685348,
+      "contentHash": "c892379172b4f7131b1daa69de68bcdb",
+      "sourceName": "contracts/interfaces/vault/IERC3156FlashLender.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "./IERC3156FlashBorrower.sol"
+      ],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IERC3156FlashLender"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/interfaces/vault/IERC3156FlashBorrower.sol": {
+      "lastModificationDate": 1683663685347,
+      "contentHash": "05226bdca9d0a1d00dbae34aaa8724b1",
+      "sourceName": "contracts/interfaces/vault/IERC3156FlashBorrower.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IERC3156FlashBorrower"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/interfaces/token/IERC20Permit2.sol": {
+      "lastModificationDate": 1683663685342,
+      "contentHash": "4ef871e4859f5ae969fa035bf602524e",
+      "sourceName": "contracts/interfaces/token/IERC20Permit2.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "./IERC20Permit.sol"
+      ],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IERC20Permit2"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/interfaces/token/IERC20.sol": {
+      "lastModificationDate": 1683663685341,
+      "contentHash": "8cc882761231146d207298711ef9476a",
+      "sourceName": "contracts/interfaces/token/IERC20.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "./IERC20Base.sol"
+      ],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IERC20"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/interfaces/token/IERC20Base.sol": {
+      "lastModificationDate": 1683663685341,
+      "contentHash": "f4bce717e352acf6723038d39b0175da",
+      "sourceName": "contracts/interfaces/token/IERC20Base.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IERC20Base"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/interfaces/token/IERC20PermitAllowed.sol": {
+      "lastModificationDate": 1683663685342,
+      "contentHash": "f8ff41be13e1a82407812c813337b519",
+      "sourceName": "contracts/interfaces/token/IERC20PermitAllowed.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IERC20PermitAllowed"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/test/RouterEventEmitter.sol": {
+      "lastModificationDate": 1683663685332,
+      "contentHash": "f3780e4a794db6fb88dd595a9bd93c4d",
+      "sourceName": "contracts/test/RouterEventEmitter.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "../SyncSwapRouter.sol",
+        "../interfaces/IRouter.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "RouterEventEmitter"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/pool/stable/SyncSwapStablePool.sol": {
+      "lastModificationDate": 1683663685338,
+      "contentHash": "74c599507e403269592d34a40fe4f23a",
+      "sourceName": "contracts/pool/stable/SyncSwapStablePool.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "../../libraries/Math.sol",
+        "../../libraries/StableMath.sol",
+        "../../libraries/ERC20Permit2.sol",
+        "../../libraries/MetadataHelper.sol",
+        "../../libraries/ReentrancyGuard.sol",
+        "../../interfaces/ICallback.sol",
+        "../../interfaces/vault/IVault.sol",
+        "../../interfaces/pool/IStablePool.sol",
+        "../../interfaces/master/IPoolMaster.sol",
+        "../../interfaces/master/IFeeRecipient.sol",
+        "../../interfaces/factory/IPoolFactory.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "SyncSwapStablePool"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/libraries/Math.sol": {
+      "lastModificationDate": 1683663685335,
+      "contentHash": "9e0601412fc0d500c3f9c428f552a5d4",
+      "sourceName": "contracts/libraries/Math.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Math"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/libraries/StableMath.sol": {
+      "lastModificationDate": 1683663685334,
+      "contentHash": "2e8dbf98d2ae7a615ae65554636b71d9",
+      "sourceName": "contracts/libraries/StableMath.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "./Math.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "StableMath"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/libraries/ERC20Permit2.sol": {
+      "lastModificationDate": 1683663685336,
+      "contentHash": "fc601dbf448e15dd745da52d3986c244",
+      "sourceName": "contracts/libraries/ERC20Permit2.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/token/IERC165.sol",
+        "../interfaces/token/IERC20Permit2.sol",
+        "./SignatureChecker.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC20Permit2"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/libraries/MetadataHelper.sol": {
+      "lastModificationDate": 1683663685335,
+      "contentHash": "af3c1df596f519645fb5e2766254108b",
+      "sourceName": "contracts/libraries/MetadataHelper.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "MetadataHelper"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/libraries/ReentrancyGuard.sol": {
+      "lastModificationDate": 1683663685333,
+      "contentHash": "a5d0f59059ee32092a8d43dc09c1ee0a",
+      "sourceName": "contracts/libraries/ReentrancyGuard.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ReentrancyGuard"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/interfaces/ICallback.sol": {
+      "lastModificationDate": 1683663685342,
+      "contentHash": "7eb5e7e11d41297b1f3ff55d48f1cd6f",
+      "sourceName": "contracts/interfaces/ICallback.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "ICallback"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/interfaces/pool/IStablePool.sol": {
+      "lastModificationDate": 1683663685346,
+      "contentHash": "cb1269b1a54911a8fc2209dd9e700532",
+      "sourceName": "contracts/interfaces/pool/IStablePool.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "./IBasePool.sol"
+      ],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IStablePool"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/interfaces/master/IPoolMaster.sol": {
+      "lastModificationDate": 1683663685344,
+      "contentHash": "f0dc3669e3426dbcb6464e0fb56da66a",
+      "sourceName": "contracts/interfaces/master/IPoolMaster.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "./IFeeManager.sol",
+        "./IForwarderRegistry.sol"
+      ],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IPoolMaster"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/interfaces/master/IFeeRecipient.sol": {
+      "lastModificationDate": 1683663685344,
+      "contentHash": "637c5a56cc96d30bfa606e79569f75c4",
+      "sourceName": "contracts/interfaces/master/IFeeRecipient.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IFeeRecipient"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/interfaces/token/IERC165.sol": {
+      "lastModificationDate": 1683663685342,
+      "contentHash": "bc7ea71a76823eb7ba54e5eda099915c",
+      "sourceName": "contracts/interfaces/token/IERC165.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IERC165"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/libraries/SignatureChecker.sol": {
+      "lastModificationDate": 1683663685334,
+      "contentHash": "b1421ac66159fb976d84337533372954",
+      "sourceName": "contracts/libraries/SignatureChecker.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "./ECDSA.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "SignatureChecker"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/libraries/ECDSA.sol": {
+      "lastModificationDate": 1683663685334,
+      "contentHash": "b12ebdf6173022b207732aaf15d1eefc",
+      "sourceName": "contracts/libraries/ECDSA.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ECDSA"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/interfaces/master/IForwarderRegistry.sol": {
+      "lastModificationDate": 1683663685343,
+      "contentHash": "52f52782de85712171d5d5fac698e252",
+      "sourceName": "contracts/interfaces/master/IForwarderRegistry.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IForwarderRegistry"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/interfaces/master/IFeeManager.sol": {
+      "lastModificationDate": 1683663685344,
+      "contentHash": "a8efaa2a9e22299c7028cc8deebba828",
+      "sourceName": "contracts/interfaces/master/IFeeManager.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IFeeManager"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/pool/stable/SyncSwapStablePoolFactory.sol": {
+      "lastModificationDate": 1683663685339,
+      "contentHash": "0b20a9116611ca05994d5f4852b7867f",
+      "sourceName": "contracts/pool/stable/SyncSwapStablePoolFactory.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "../../interfaces/token/IERC20.sol",
+        "../../interfaces/master/IPoolMaster.sol",
+        "../BasePoolFactory.sol",
+        "./SyncSwapStablePool.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "SyncSwapStablePoolFactory"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/pool/BasePoolFactory.sol": {
+      "lastModificationDate": 1683663685340,
+      "contentHash": "f40e52a73bad0b006ab07ec983a6688a",
+      "sourceName": "contracts/pool/BasePoolFactory.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/factory/IBasePoolFactory.sol",
+        "../interfaces/master/IPoolMaster.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "BasePoolFactory"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/interfaces/factory/IBasePoolFactory.sol": {
+      "lastModificationDate": 1683663685347,
+      "contentHash": "493ae5e9d470f48170131495111d8c42",
+      "sourceName": "contracts/interfaces/factory/IBasePoolFactory.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "./IPoolFactory.sol"
+      ],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IBasePoolFactory"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/pool/classic/SyncSwapClassicPool.sol": {
+      "lastModificationDate": 1683668699552,
+      "contentHash": "28b670107842bc3f4c82a53b64182e95",
+      "sourceName": "contracts/pool/classic/SyncSwapClassicPool.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "../../libraries/Math.sol",
+        "../../libraries/ERC20Permit2.sol",
+        "../../libraries/MetadataHelper.sol",
+        "../../libraries/ReentrancyGuard.sol",
+        "../../interfaces/ICallback.sol",
+        "../../interfaces/vault/IVault.sol",
+        "../../interfaces/pool/IClassicPool.sol",
+        "../../interfaces/master/IPoolMaster.sol",
+        "../../interfaces/master/IFeeRecipient.sol",
+        "../../interfaces/factory/IPoolFactory.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "SyncSwapClassicPool"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/interfaces/pool/IClassicPool.sol": {
+      "lastModificationDate": 1683663685346,
+      "contentHash": "2073217502eae4da3b7e3bae0fe29f57",
+      "sourceName": "contracts/interfaces/pool/IClassicPool.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "./IBasePool.sol"
+      ],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IClassicPool"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/vault/VaultFlashLoans.sol": {
+      "lastModificationDate": 1683663685340,
+      "contentHash": "d04f75c8677bb024e5da39a7cab19dc8",
+      "sourceName": "contracts/vault/VaultFlashLoans.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/token/IERC20.sol",
+        "../interfaces/master/IFeeRecipient.sol",
+        "../interfaces/vault/IVault.sol",
+        "../interfaces/vault/IFlashLoanRecipient.sol",
+        "../libraries/Pausable.sol",
+        "../libraries/ReentrancyGuard.sol",
+        "../libraries/TransferHelper.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "VaultFlashLoans"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/libraries/Pausable.sol": {
+      "lastModificationDate": 1683663685333,
+      "contentHash": "eb4ce8cb087e0a63003b36c49ab45622",
+      "sourceName": "contracts/libraries/Pausable.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "./Ownable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Pausable"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/libraries/Ownable.sol": {
+      "lastModificationDate": 1683663685333,
+      "contentHash": "3e73dbbf991713326e2c0cabf8c1f74a",
+      "sourceName": "contracts/libraries/Ownable.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Ownable"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/vault/SyncSwapVault.sol": {
+      "lastModificationDate": 1683663685340,
+      "contentHash": "19155d03dda9f8ba35dbf7a2aad520c0",
+      "sourceName": "contracts/vault/SyncSwapVault.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/IWETH.sol",
+        "../interfaces/token/IERC20.sol",
+        "../libraries/ReentrancyGuard.sol",
+        "../libraries/TransferHelper.sol",
+        "./VaultFlashLoans.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "SyncSwapVault"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/master/SyncSwapFeeRecipient.sol": {
+      "lastModificationDate": 1683663685337,
+      "contentHash": "a22db650bab1528ec0a7a1a5d1cfc88c",
+      "sourceName": "contracts/master/SyncSwapFeeRecipient.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/token/IERC20.sol",
+        "../interfaces/master/IFeeRegistry.sol",
+        "../interfaces/master/IFeeRecipient.sol",
+        "../libraries/Ownable2Step.sol",
+        "../libraries/TransferHelper.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "SyncSwapFeeRecipient"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/interfaces/master/IFeeRegistry.sol": {
+      "lastModificationDate": 1683663685345,
+      "contentHash": "921cd2fa4864a37f1e80f46baea6ff77",
+      "sourceName": "contracts/interfaces/master/IFeeRegistry.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IFeeRegistry"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/libraries/Ownable2Step.sol": {
+      "lastModificationDate": 1683663685336,
+      "contentHash": "df848393c3b08147fe11d73dea6ef12d",
+      "sourceName": "contracts/libraries/Ownable2Step.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "./Ownable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Ownable2Step"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/master/SyncSwapPoolMaster.sol": {
+      "lastModificationDate": 1683663685337,
+      "contentHash": "49ead7a7efc8f6598656c0175a99ba0c",
+      "sourceName": "contracts/master/SyncSwapPoolMaster.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/master/IPoolMaster.sol",
+        "../interfaces/factory/IPoolFactory.sol",
+        "../libraries/Ownable2Step.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "SyncSwapPoolMaster"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/master/SyncSwapFeeManager.sol": {
+      "lastModificationDate": 1683663685338,
+      "contentHash": "78aac863860a455fa445006121ada5a7",
+      "sourceName": "contracts/master/SyncSwapFeeManager.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/pool/IPool.sol",
+        "../interfaces/master/IFeeManager.sol",
+        "../libraries/Ownable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "SyncSwapFeeManager"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/test/TestSyncSwapLPToken.sol": {
+      "lastModificationDate": 1683663685331,
+      "contentHash": "87c8f3d940a7fca24e7078d7b2039ae3",
+      "sourceName": "contracts/test/TestSyncSwapLPToken.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "../libraries/ERC20Permit2.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "TestERC20Permit2"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/master/ForwarderRegistry.sol": {
+      "lastModificationDate": 1683663685337,
+      "contentHash": "369586a807979ecf9cb0bbc56a1c8e15",
+      "sourceName": "contracts/master/ForwarderRegistry.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/master/IForwarderRegistry.sol",
+        "../libraries/Ownable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ForwarderRegistry"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/master/FeeRegistry.sol": {
+      "lastModificationDate": 1683663685338,
+      "contentHash": "0092298dc743b1b356454a10c4a46a78",
+      "sourceName": "contracts/master/FeeRegistry.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/master/IPoolMaster.sol",
+        "../interfaces/master/IFeeRegistry.sol",
+        "../libraries/Ownable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "FeeRegistry"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/pool/classic/SyncSwapClassicPoolFactory.sol": {
+      "lastModificationDate": 1683668852704,
+      "contentHash": "4330b3857124d7d7b7c9fbbe4d36127d",
+      "sourceName": "contracts/pool/classic/SyncSwapClassicPoolFactory.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "=0.8.15"
+      ],
+      "artifacts": [
+        "BasePoolFactory",
+        "ECDSA",
+        "ERC20Permit2",
+        "IBasePool",
+        "IBasePoolFactory",
+        "ICallback",
+        "IClassicPool",
+        "IERC165",
+        "IERC20",
+        "IERC20Base",
+        "IERC20Permit",
+        "IERC20Permit2",
+        "IERC3156FlashBorrower",
+        "IERC3156FlashLender",
+        "IFeeManager",
+        "IFeeRecipient",
+        "IFlashLoan",
+        "IFlashLoanRecipient",
+        "IForwarderRegistry",
+        "IPool",
+        "IPoolFactory",
+        "IPoolMaster",
+        "IVault",
+        "Math",
+        "MetadataHelper",
+        "ReentrancyGuard",
+        "SignatureChecker",
+        "SyncSwapClassicPool",
+        "SyncSwapClassicPoolFactory"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/test/DeflatingERC20.sol": {
+      "lastModificationDate": 1683663685331,
+      "contentHash": "251feeff25a052cae5afd03e0ea581ee",
+      "sourceName": "contracts/test/DeflatingERC20.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "DeflatingERC20"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/test/TestERC20.sol": {
+      "lastModificationDate": 1683663685332,
+      "contentHash": "b8dd485840cb219f068c8adc307063b6",
+      "sourceName": "contracts/test/TestERC20.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "TestERC20"
+      ]
+    },
+    "/Users/karonte/dev/blindSwap/uniV2Sksync/contracts/test/TestWETH9.sol": {
+      "lastModificationDate": 1683663685332,
+      "contentHash": "46102a7838a30cfbd1352a5bb881f50b",
+      "sourceName": "contracts/test/TestWETH9.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200,
+            "details": {
+              "yul": false
+            }
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.5",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "TestWETH9"
+      ]
+    }
+  }
+}
